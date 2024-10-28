@@ -12,6 +12,7 @@ body {
     min-height: 100vh;
     background: #F8F8F8;
     font-family: 'Roboto', sans-serif;
+    background-color: lightseagreen;
 }
 section.chat__section {
     width: 800px;
@@ -31,13 +32,19 @@ section.chat__section {
     color: #444;
     margin-left: 10px;
 }
-.message__area{
+.message__area {
     height: 500px;
     padding: 16px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     padding-top: 40px;
+}
+.typing-indicator {
+    font-size: 14px;
+    color: #888;
+    padding: 10px;
+    margin-top: -20px;
 }
 textarea {
     width: 100%;
@@ -49,25 +56,41 @@ textarea {
 }
 
 .message {
-    padding: 20px; 
-    border-radius: 4px; 
-    margin-bottom: 40px;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
     max-width: 300px;
     position: relative;
 }
 .incoming {
     background: #8F8BE8;
-    color: #fff;  
+    color: #fff;
 }
 .outgoing {
-    background: #e9eafd;
-    color: #787986;
+    background: #8F8BE8;
+    color: #fff;
     margin-left: auto;
 }
 .message h4 {
-    position: absolute;
-    top: -20px;
-    left: 0;
     color: #333;
     font-size: 14px;
+    margin-bottom: 5px;
+}
+.timestamp {
+    font-size: 12px;
+    color: #fff; /* Adjusted to provide better contrast */
+    margin-left: 5px;
+    display: inline-block;
+}
+.status {
+    text-align: center;
+    color: #444;
+    font-style: italic;
+    padding: 10px;
+}
+.typing-indicator {
+    font-size: 14px;
+    color: #888;
+    padding: 10px;
+    margin-top: -10px;
 }

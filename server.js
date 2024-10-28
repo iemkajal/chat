@@ -17,10 +17,26 @@ app.get('/', (req, res) => {
 // Socket 
 const io = require('socket.io')(http)
 
+let users = {}
+
 io.on('connection', (socket) => {
     console.log('Connected...')
+
+    socket.on('new-user', (name) => {
+        users[socket.id] = name
+        io.emit('user-connected', name)
+    })
+
     socket.on('message', (msg) => {
         socket.broadcast.emit('message', msg)
     })
 
+    socket.on('typing', (data) => {
+        socket.broadcast.emit('typing', data)
+    })
+
+    socket.on('disconnect', () => {
+        io.emit('user-disconnected', users[socket.id])
+        delete users[socket.id]
+    })
 })
